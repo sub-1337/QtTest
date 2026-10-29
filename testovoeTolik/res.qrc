@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>calc_1.png</file>
+        <file>calc_2.png</file>
+        <file>calc_3.png</file>
+        <file>hatch_1.png</file>
+        <file>hatch_2.png</file>
+        <file>hatch_3.png</file>
+        <file>hatch_4.png</file>
+        <file>hatch_5.png</file>
+        <file>hatch_6.png</file>
+    </qresource>
+</RCC>
