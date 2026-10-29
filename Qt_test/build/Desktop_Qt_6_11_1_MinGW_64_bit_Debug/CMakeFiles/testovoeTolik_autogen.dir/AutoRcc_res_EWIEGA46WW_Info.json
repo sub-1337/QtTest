@@ -1,0 +1,33 @@
+{
+	"BUILD_DIR" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/testovoeTolik_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik",
+	"CMAKE_SOURCE_DIR" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "MinGW Makefiles",
+	"INCLUDE_DIR" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/testovoeTolik_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/calc_1.png",
+		"C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/hatch_4.png",
+		"C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/calc_2.png",
+		"C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/hatch_6.png",
+		"C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/hatch_1.png",
+		"C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/hatch_2.png",
+		"C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/hatch_3.png",
+		"C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/hatch_5.png",
+		"C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/calc_3.png"
+	],
+	"LOCK_FILE" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/CMakeFiles/testovoeTolik_autogen.dir/AutoRcc_res_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "res" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_res.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.11.1/mingw_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug/CMakeFiles/testovoeTolik_autogen.dir/AutoRcc_res_EWIEGA46WW_Used.txt",
+	"SOURCE" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/res.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}

@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-8eb9072b06879f458125.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "testovoeTolik",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "testovoeTolik::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testovoeTolik-Debug-85fef4645c6e65d3e3c4.json",
+					"name" : "testovoeTolik",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testovoeTolik_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testovoeTolik_autogen-Debug-0178eabfc6b1136a4b74.json",
+					"name" : "testovoeTolik_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "testovoeTolik_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-testovoeTolik_autogen_timestamp_deps-Debug-b18ab39cdfb45c5acd3c.json",
+					"name" : "testovoeTolik_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik/build/Desktop_Qt_6_11_1_MinGW_64_bit_Debug",
+		"source" : "C:/Users/subli/Local/Git/anatolyTest/testovoeTolik"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
