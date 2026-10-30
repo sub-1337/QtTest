@@ -1,2 +1,2 @@
-# anatolyTest
+# QtTest
 Test for work
