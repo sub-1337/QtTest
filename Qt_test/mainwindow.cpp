@@ -31,8 +31,25 @@ MainWindow::MainWindow(QWidget *parent)
 // Добавление
 void MainWindow::OnAdd()
 {
+    RecordData currentData{};
+    const auto currentIndex = ui->tableView->currentIndex();
+    // Считываем выделенную строку для диалога
+    if (currentIndex.isValid())
+    {
+        const int row = currentIndex.row();
+        currentData.m_method = m_model->index(row, 0).data().toString();
+        currentData.m_mass = m_model->index(row, 1).data().toString();
+        currentData.m_density = m_model->index(row, 2).data().toString();
+        currentData.m_massCenter = m_model->index(row, 3).data().toString();
+        currentData.m_material = m_model->index(row, 4).data().toString();
+        currentData.m_style = m_model->index(row, 5).data().toString();
+        currentData.m_angle = m_model->index(row, 6).data().toString();
+    }
+
     // Вызов диалога добавления элемента
     DialogParameters dlg;
+    // Передаём в диалог текущие значения
+    dlg.data = currentData;
     auto res = dlg.exec();
     if (res == QDialog::Accepted)
     {

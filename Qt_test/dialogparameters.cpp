@@ -172,13 +172,52 @@ void DialogParameters::onComboboxTypeChanged(int index)
         ui->comboBox_style->setEnabled(false);
         ui->lineEdit_angle->setEnabled(false);
 
-        // Обнуляем загрееные значения
-        ui->lineEdit_density2->setText("0");
-        ui->lineEdit_mass_2->setText("0");
+        // Зачитываем в контроллы сохранённые параметры из главного окна
+        if (!data.m_density.isEmpty())
+        {
+            ui->lineEdit_density2->setText(data.m_density);
+        }
+        else
+        {
+            ui->lineEdit_density2->setText("0");
+        }
 
-        ui->lineEdit_material->setText("");
-        ui->comboBox_style->setCurrentIndex(0);
-        ui->lineEdit_angle->setText("0");
+        if (!data.m_mass.isEmpty())
+        {
+            ui->lineEdit_mass_2->setText(data.m_mass);
+        }
+        else
+        {
+            ui->lineEdit_mass_2->setText("0");
+        }
+
+        if (!data.m_material.isEmpty())
+        {
+            ui->lineEdit_material->setText(data.m_material);
+        }
+        else
+        {
+            ui->lineEdit_material->setText("");
+        }
+
+        if (!data.m_style.isEmpty())
+        {
+            ui->comboBox_style->setCurrentText(data.m_style);
+        }
+        else
+        {
+            ui->comboBox_style->setCurrentIndex(0);
+        }
+
+        if (!data.m_angle.isEmpty())
+        {
+            ui->lineEdit_angle->setText(data.m_angle);
+        }
+        else
+        {
+            ui->lineEdit_angle->setText("0");
+        }
+
     }
 }
 
@@ -285,7 +324,16 @@ void DialogParameters::onSave()
 
         data.m_material = ui->lineEdit_material->text();;
         data.m_style = ui->comboBox_style->currentText();
-        data.m_angle = ui->lineEdit_angle->text();
+
+        if (ui->lineEdit_angle->hasAcceptableInput())
+        {
+            data.m_angle = ui->lineEdit_angle->text();
+        }
+        else
+        {
+            data.m_angle = "0";
+        }
+
     }
     else if (variantOfDialog == 2) // данные
     {
