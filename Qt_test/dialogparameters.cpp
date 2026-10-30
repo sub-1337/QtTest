@@ -2,6 +2,8 @@
 #include "ui_dialogparameters.h"
 #include <QDebug>
 #include <QIntValidator>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
 DialogParameters::DialogParameters(QWidget *parent)
     : QDialog(parent)
@@ -9,7 +11,7 @@ DialogParameters::DialogParameters(QWidget *parent)
 {
     ui->setupUi(this);
 
-    setFixedSize(650, 269);
+    setFixedSize(670, 320);
 
     ui->comboBoxMethod->addItem(QIcon(":/icons/calc_2.png"), "По плотности");
     ui->comboBoxMethod->addItem(QIcon(":/icons/calc_1.png"), "По массе");
@@ -23,6 +25,9 @@ DialogParameters::DialogParameters(QWidget *parent)
     ui->comboBox_style->addItem(QIcon(":/icons/hatch_6.png"), "Напряжённый железобетон");
 
     ui->comboBox_style->setIconSize(QSize(60,25 / 2));
+
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Применить");
+    ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Отменить");
 
     // Ввод только цифр
     ui->lineEdit_mass->setValidator(
@@ -108,15 +113,23 @@ void DialogParameters::onMassCenter(bool checked)
 {
     if (checked)
     {
-        ui->lineEdit_X->setEnabled(true);
-        ui->lineEdit_Y->setEnabled(true);
-        ui->lineEdit_Z->setEnabled(true);
+        ui->lineEdit_X->show();
+        ui->lineEdit_Y->show();
+        ui->lineEdit_Z->show();
+
+        ui->label_X->show();
+        ui->label_Y->show();
+        ui->label_Z->show();
     }
     else
     {
-        ui->lineEdit_X->setEnabled(false);
-        ui->lineEdit_Y->setEnabled(false);
-        ui->lineEdit_Z->setEnabled(false);
+        ui->lineEdit_X->hide();
+        ui->lineEdit_Y->hide();
+        ui->lineEdit_Z->hide();
+
+        ui->label_X->hide();
+        ui->label_Y->hide();
+        ui->label_Z->hide();
     }
 }
 
@@ -128,9 +141,9 @@ void DialogParameters::onSave()
     if (variantOfDialog == 0) // плотность
     {
         m_method = "плотность";
-        m_mass = "100";
+        m_mass = "0";
         m_density = ui->lineEdit_density->text();
-        m_massCenter = "5.5.5";
+        m_massCenter = "0.0.0";
         m_material = ui->lineEdit_material->text();
         m_style = ui->comboBox_style->currentText();
         m_angle = ui->lineEdit_angle->text();
@@ -139,11 +152,19 @@ void DialogParameters::onSave()
     {
         m_method = "масса";
         m_mass = ui->lineEdit_mass->text();
-        m_density = "50";
-        m_massCenter =   ui->lineEdit_X->text() + "."
-                       + ui->lineEdit_Y->text() + "."
-                       + ui->lineEdit_Z->text();
-            ;
+        m_density = "0";
+
+        if (ui->checkBox_massCenter->isChecked())
+        {
+            m_massCenter =   ui->lineEdit_X->text() + "."
+                           + ui->lineEdit_Y->text() + "."
+                           + ui->lineEdit_Z->text();
+        }
+        else
+        {
+            m_massCenter = "0.0.0";
+        }
+
         m_material = ui->lineEdit_material->text();;
         m_style = ui->comboBox_style->currentText();
         m_angle = ui->lineEdit_angle->text();
@@ -153,7 +174,7 @@ void DialogParameters::onSave()
         m_method = "по данным";
         m_mass = ui->lineEdit_mass_2->text();
         m_density = ui->lineEdit_density2->text();
-        m_massCenter = "3.3.3";
+        m_massCenter = "0.0.0";
         m_material = ui->lineEdit_material->text();;
         m_style = ui->comboBox_style->currentText();
         m_angle = ui->lineEdit_angle->text();
