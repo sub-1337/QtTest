@@ -163,7 +163,15 @@ void DialogParameters::onSave()
     {
         m_method = "плотность";
         m_mass = "0";
-        m_density = ui->lineEdit_density->text();
+        if (ui->lineEdit_density->hasAcceptableInput())
+        {
+            m_density = ui->lineEdit_density->text();
+        }
+        else
+        {
+            m_density = "0";
+        }
+
         m_massCenter = "0.0.0";
         m_material = ui->lineEdit_material->text();
         m_style = ui->comboBox_style->currentText();
@@ -172,14 +180,33 @@ void DialogParameters::onSave()
     else if (variantOfDialog == 1) // масса
     {
         m_method = "масса";
-        m_mass = ui->lineEdit_mass->text();
+
+        if (ui->lineEdit_mass->hasAcceptableInput())
+        {
+            m_mass = ui->lineEdit_mass->text();
+        }
+        else
+        {
+            m_mass = "0";
+        }
+
         m_density = "0";
 
         if (ui->checkBox_massCenter->isChecked())
         {
-            m_massCenter =   ui->lineEdit_X->text() + "."
-                           + ui->lineEdit_Y->text() + "."
-                           + ui->lineEdit_Z->text();
+            if (ui->lineEdit_X->hasAcceptableInput()
+                && ui->lineEdit_Y->hasAcceptableInput()
+                && ui->lineEdit_Z->hasAcceptableInput())
+            {
+                m_massCenter =   ui->lineEdit_X->text() + "."
+                               + ui->lineEdit_Y->text() + "."
+                               + ui->lineEdit_Z->text();
+            }
+            else
+            {
+                m_massCenter = "0.0.0";
+            }
+
         }
         else
         {
