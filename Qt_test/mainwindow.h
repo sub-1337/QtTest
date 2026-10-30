@@ -19,8 +19,8 @@ public:
     ~MainWindow() override;
 
 private:
-    void OnAdd();
-    void onDelete();
+    void OnAdd(); // Добавление
+    void onDelete(); // Удаление
 
     Ui::MainWindow *ui;
     QStandardItemModel *m_model;

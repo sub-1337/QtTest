@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QFontMetrics>
 #include <QAbstractItemView>
+#include <QDoubleValidator>
 
 DialogParameters::DialogParameters(QWidget *parent)
     : QDialog(parent)
@@ -13,8 +14,10 @@ DialogParameters::DialogParameters(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Задать фиксированныые размеры окна
     setFixedSize(700, 320);
 
+    // Заполняем способ рассчёта
     ui->comboBoxMethod->addItem(QIcon(":/icons/calc_2.png"), "По плотности");
     ui->comboBoxMethod->addItem(QIcon(":/icons/calc_1.png"), "По массе");
     ui->comboBoxMethod->addItem(QIcon(":/icons/calc_3.png"), "По данным источника копирования");
@@ -36,6 +39,7 @@ DialogParameters::DialogParameters(QWidget *parent)
 
     setAutoSizeForComboBox(ui->comboBoxMethod);
 
+    // Заполняем комбо бокс правый - стиль
     ui->comboBox_style->addItem(QIcon(":/icons/hatch_1.png"), "Металл");
     ui->comboBox_style->addItem(QIcon(":/icons/hatch_2.png"), "Естественный грунт");
     ui->comboBox_style->addItem(QIcon(":/icons/hatch_3.png"), "Насыпной грунт");
@@ -45,15 +49,23 @@ DialogParameters::DialogParameters(QWidget *parent)
 
     setAutoSizeForComboBox(ui->comboBox_style, 60);
 
+    // Фикс размера иконки в стиле
     ui->comboBox_style->setIconSize(QSize(60,25 / 2));
 
+    // Переименовать кнопки в диалоге
     ui->buttonBox->button(QDialogButtonBox::Ok)->setText("Применить");
     ui->buttonBox->button(QDialogButtonBox::Cancel)->setText("Отменить");
 
     // Ввод только цифр
+    // допустимы дроби через запятую
     ui->lineEdit_mass->setValidator(
-        new QIntValidator(0, 999999, this)
-    );
+        new QDoubleValidator(
+            0.0,       // Minimum value
+            10000.0,     // Maximum value
+            2,         // Decimal places
+            ui->lineEdit_mass
+            ));
+
     ui->lineEdit_X->setValidator(
         new QIntValidator(0, 999999, this)
     );
@@ -65,18 +77,38 @@ DialogParameters::DialogParameters(QWidget *parent)
     );
 
     ui->lineEdit_density->setValidator(
-        new QIntValidator(0, 999999, this)
+        new QDoubleValidator(
+            0.0,       // Minimum value
+            10000.0,     // Maximum value
+            2,         // Decimal places
+            ui->lineEdit_density
+            )
     );
 
     ui->lineEdit_density2->setValidator(
-        new QIntValidator(0, 999999, this)
+        new QDoubleValidator(
+            0.0,       // Minimum value
+            10000.0,     // Maximum value
+            2,         // Decimal places
+            ui->lineEdit_density2
+            )
     );
     ui->lineEdit_mass_2->setValidator(
-        new QIntValidator(0, 999999, this)
+        new QDoubleValidator(
+            0.0,       // Minimum value
+            10000.0,     // Maximum value
+            2,         // Decimal places
+            ui->lineEdit_mass_2
+            )
     );
 
     ui->lineEdit_angle->setValidator(
-        new QIntValidator(0, 999999, this)
+        new QDoubleValidator(
+            0.0,       // Minimum value
+            10000.0,     // Maximum value
+            2,         // Decimal places
+            ui->lineEdit_angle
+            )
     );
 
     connect(ui->comboBoxMethod, &QComboBox::currentIndexChanged, this, &DialogParameters::onComboboxTypeChanged);
@@ -90,10 +122,9 @@ DialogParameters::DialogParameters(QWidget *parent)
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &DialogParameters::onSave);
 }
 
+// При активации комбо бокса "способ рассчёта"
 void DialogParameters::onComboboxTypeChanged(int index)
 {
-    qDebug() << "index" << index;
-
     ui->widget_mass->setVisible(false);
     ui->widget_density->setVisible(false);
     ui->widget_source->setVisible(false);
@@ -130,6 +161,7 @@ void DialogParameters::onComboboxTypeChanged(int index)
     }
 }
 
+// При активации галочки "центр масс"
 void DialogParameters::onMassCenter(bool checked)
 {
     if (checked)
@@ -154,6 +186,7 @@ void DialogParameters::onMassCenter(bool checked)
     }
 }
 
+// При нажатии кнопки сохранить
 void DialogParameters::onSave()
 {
 
@@ -161,45 +194,45 @@ void DialogParameters::onSave()
 
     if (variantOfDialog == 0) // плотность
     {
-        m_method = "плотность";
-        m_mass = "0";
+        data.m_method = "плотность";
+        data.m_mass = "0";
         if (ui->lineEdit_density->hasAcceptableInput())
         {
-            m_density = ui->lineEdit_density->text();
+            data.m_density = ui->lineEdit_density->text();
         }
         else
         {
-            m_density = "0";
+            data.m_density = "0";
         }
 
-        m_massCenter = "0.0.0";
-        m_material = ui->lineEdit_material->text();
-        m_style = ui->comboBox_style->currentText();
+        data.m_massCenter = "0.0.0";
+        data.m_material = ui->lineEdit_material->text();
+        data.m_style = ui->comboBox_style->currentText();
 
         if (ui->lineEdit_angle->hasAcceptableInput())
         {
-            m_angle = ui->lineEdit_angle->text();
+            data.m_angle = ui->lineEdit_angle->text();
         }
         else
         {
-            m_angle = "0";
+            data.m_angle = "0";
         }
 
     }
     else if (variantOfDialog == 1) // масса
     {
-        m_method = "масса";
+        data.m_method = "масса";
 
         if (ui->lineEdit_mass->hasAcceptableInput())
         {
-            m_mass = ui->lineEdit_mass->text();
+            data.m_mass = ui->lineEdit_mass->text();
         }
         else
         {
-            m_mass = "0";
+            data.m_mass = "0";
         }
 
-        m_density = "0";
+        data.m_density = "0";
 
         if (ui->checkBox_massCenter->isChecked())
         {
@@ -207,34 +240,34 @@ void DialogParameters::onSave()
                 && ui->lineEdit_Y->hasAcceptableInput()
                 && ui->lineEdit_Z->hasAcceptableInput())
             {
-                m_massCenter =   ui->lineEdit_X->text() + "."
+                data.m_massCenter =   ui->lineEdit_X->text() + "."
                                + ui->lineEdit_Y->text() + "."
                                + ui->lineEdit_Z->text();
             }
             else
             {
-                m_massCenter = "0.0.0";
+                data.m_massCenter = "0.0.0";
             }
 
         }
         else
         {
-            m_massCenter = "0.0.0";
+            data.m_massCenter = "0.0.0";
         }
 
-        m_material = ui->lineEdit_material->text();;
-        m_style = ui->comboBox_style->currentText();
-        m_angle = ui->lineEdit_angle->text();
+        data.m_material = ui->lineEdit_material->text();;
+        data.m_style = ui->comboBox_style->currentText();
+        data.m_angle = ui->lineEdit_angle->text();
     }
     else if (variantOfDialog == 2) // данные
     {
-        m_method = "по данным";
-        m_mass = ui->lineEdit_mass_2->text();
-        m_density = ui->lineEdit_density2->text();
-        m_massCenter = "0.0.0";
-        m_material = ui->lineEdit_material->text();;
-        m_style = ui->comboBox_style->currentText();
-        m_angle = ui->lineEdit_angle->text();
+        data.m_method = "по данным";
+        data.m_mass = ui->lineEdit_mass_2->text();
+        data.m_density = ui->lineEdit_density2->text();
+        data.m_massCenter = "0.0.0";
+        data.m_material = ui->lineEdit_material->text();;
+        data.m_style = ui->comboBox_style->currentText();
+        data.m_angle = ui->lineEdit_angle->text();
     }
 }
 

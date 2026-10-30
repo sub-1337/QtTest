@@ -547,6 +547,7 @@ CMakeFiles/QtTest.dir/dialogparameters.cpp.obj: C:/Users/subli/Local/Git/anatoly
   C:/Qt/6.11.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/QDoubleValidator \
   C:/Qt/6.11.1/mingw_64/include/QtGui/QFontMetrics \
   C:/Qt/6.11.1/mingw_64/include/QtGui/QIntValidator \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qaction.h \
@@ -2596,6 +2597,8 @@ C:/Qt/6.11.1/mingw_64/include/QtCore/qeventloop.h:
 C:/Qt/6.11.1/mingw_64/include/QtCore/qlocale.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtCore/qnativeinterface.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtGui/QDoubleValidator:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qguiapplication_platform.h:
 

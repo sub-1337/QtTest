@@ -445,4 +445,5 @@ CMakeFiles/QtTest.dir/dialogparameters.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QAbstractItemView \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemview.h \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- C:/Qt/6.11.1/mingw_64/include/QtCore/qitemselectionmodel.h
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/QDoubleValidator
