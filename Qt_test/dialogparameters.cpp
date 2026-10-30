@@ -175,7 +175,16 @@ void DialogParameters::onSave()
         m_massCenter = "0.0.0";
         m_material = ui->lineEdit_material->text();
         m_style = ui->comboBox_style->currentText();
-        m_angle = ui->lineEdit_angle->text();
+
+        if (ui->lineEdit_angle->hasAcceptableInput())
+        {
+            m_angle = ui->lineEdit_angle->text();
+        }
+        else
+        {
+            m_angle = "0";
+        }
+
     }
     else if (variantOfDialog == 1) // масса
     {
