@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
-    <height>459</height>
+    <width>748</width>
+    <height>414</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <rect>
      <x>30</x>
      <y>30</y>
-     <width>631</width>
+     <width>711</width>
      <height>371</height>
     </rect>
    </property>
@@ -27,7 +27,7 @@
      <rect>
       <x>0</x>
       <y>50</y>
-      <width>311</width>
+      <width>351</width>
       <height>191</height>
      </rect>
     </property>
@@ -179,21 +179,21 @@
      <rect>
       <x>-1</x>
       <y>239</y>
-      <width>311</width>
+      <width>351</width>
       <height>51</height>
      </rect>
     </property>
     <widget class="QLabel" name="label_density">
      <property name="geometry">
       <rect>
-       <x>-10</x>
+       <x>10</x>
        <y>10</y>
-       <width>91</width>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>Плотность</string>
+      <string>Плотность, г/мм3</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
@@ -202,7 +202,7 @@
     <widget class="QLineEdit" name="lineEdit_density">
      <property name="geometry">
       <rect>
-       <x>92</x>
+       <x>140</x>
        <y>10</y>
        <width>171</width>
        <height>31</height>
@@ -218,14 +218,14 @@
      <rect>
       <x>-10</x>
       <y>300</y>
-      <width>311</width>
+      <width>361</width>
       <height>71</height>
      </rect>
     </property>
     <widget class="QLineEdit" name="lineEdit_density2">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>150</x>
        <y>0</y>
        <width>171</width>
        <height>31</height>
@@ -238,14 +238,14 @@
     <widget class="QLabel" name="label_density2">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>10</x>
        <y>0</y>
-       <width>91</width>
+       <width>131</width>
        <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>Плотность</string>
+      <string>Плотность, г/мм3</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
@@ -254,7 +254,7 @@
     <widget class="QLabel" name="label_mass2">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>80</x>
        <y>40</y>
        <width>61</width>
        <height>20</height>
@@ -270,7 +270,7 @@
     <widget class="QLineEdit" name="lineEdit_mass_2">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>150</x>
        <y>40</y>
        <width>171</width>
        <height>26</height>
@@ -317,7 +317,7 @@
    <widget class="QWidget" name="widget_material" native="true">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>350</x>
       <y>0</y>
       <width>321</width>
       <height>371</height>

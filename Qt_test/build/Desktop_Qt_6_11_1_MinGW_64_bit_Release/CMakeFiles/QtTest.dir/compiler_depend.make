@@ -466,6 +466,7 @@ CMakeFiles/QtTest.dir/dialogparameters.cpp.obj: C:/Users/subli/Local/Git/anatoly
   C:/Qt/6.11.1/mingw_64/include/QtCore/qhashfunctions.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevice.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qiodevicebase.h \
+  C:/Qt/6.11.1/mingw_64/include/QtCore/qitemselectionmodel.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qiterable.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qiterator.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qlatin1stringview.h \
@@ -546,6 +547,7 @@ CMakeFiles/QtTest.dir/dialogparameters.cpp.obj: C:/Users/subli/Local/Git/anatoly
   C:/Qt/6.11.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.11.1/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.11.1/mingw_64/include/QtGui/QFontMetrics \
   C:/Qt/6.11.1/mingw_64/include/QtGui/QIntValidator \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qbitmap.h \
@@ -584,6 +586,7 @@ CMakeFiles/QtTest.dir/dialogparameters.cpp.obj: C:/Users/subli/Local/Git/anatoly
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.11.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QAbstractButton \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QAbstractItemView \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QApplication \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QCheckBox \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QComboBox \
@@ -595,6 +598,8 @@ CMakeFiles/QtTest.dir/dialogparameters.cpp.obj: C:/Users/subli/Local/Git/anatoly
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+  C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.11.1/mingw_64/include/QtWidgets/qapplication.h \
@@ -2106,6 +2111,8 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/move
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qbitmap.h:
 
+C:/Qt/6.11.1/mingw_64/include/QtGui/QFontMetrics:
+
 C:/Qt/6.11.1/mingw_64/include/QtGui/qbrush.h:
 
 C:/Users/subli/Local/Git/anatolyTest/Qt_test/dialogparameters.cpp:
@@ -2599,6 +2606,8 @@ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h:
 C:/Qt/6.11.1/mingw_64/include/QtGui/qtextdocument.h:
 
 C:/Qt/6.11.1/mingw_64/include/QtGui/qtextoption.h:
+
+C:/Qt/6.11.1/mingw_64/include/QtWidgets/QAbstractItemView:
 
 C:/Qt/6.11.1/mingw_64/include/QtWidgets/QComboBox:
 

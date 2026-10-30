@@ -440,4 +440,9 @@ CMakeFiles/QtTest.dir/dialogparameters.cpp.obj: \
  C:/Qt/6.11.1/mingw_64/include/QtGui/QIntValidator \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QDialogButtonBox \
  C:/Qt/6.11.1/mingw_64/include/QtWidgets/QPushButton \
- C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/6.11.1/mingw_64/include/QtGui/QFontMetrics \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/QAbstractItemView \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+ C:/Qt/6.11.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/6.11.1/mingw_64/include/QtCore/qitemselectionmodel.h

@@ -4,6 +4,8 @@
 #include <QIntValidator>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QFontMetrics>
+#include <QAbstractItemView>
 
 DialogParameters::DialogParameters(QWidget *parent)
     : QDialog(parent)
@@ -11,11 +13,28 @@ DialogParameters::DialogParameters(QWidget *parent)
 {
     ui->setupUi(this);
 
-    setFixedSize(670, 320);
+    setFixedSize(700, 320);
 
     ui->comboBoxMethod->addItem(QIcon(":/icons/calc_2.png"), "По плотности");
     ui->comboBoxMethod->addItem(QIcon(":/icons/calc_1.png"), "По массе");
     ui->comboBoxMethod->addItem(QIcon(":/icons/calc_3.png"), "По данным источника копирования");
+
+    //  Функция чтобы сделать выпадающий список шире но оставить его компактным без клика
+    auto setAutoSizeForComboBox = [] (auto& comboBox, int additionalSpace = 0)
+    {
+        int maxWidth = 0;
+        QFontMetrics fm(comboBox->font());
+
+        for (int i = 0; i < comboBox->count(); ++i) {
+            maxWidth = std::max(maxWidth,
+                                fm.horizontalAdvance(comboBox->itemText(i)));
+        }
+
+        // Запас под отступы и скроллбар
+        comboBox->view()->setMinimumWidth(maxWidth + 40 + additionalSpace);
+    };
+
+    setAutoSizeForComboBox(ui->comboBoxMethod);
 
     ui->comboBox_style->addItem(QIcon(":/icons/hatch_1.png"), "Металл");
     ui->comboBox_style->addItem(QIcon(":/icons/hatch_2.png"), "Естественный грунт");
@@ -23,6 +42,8 @@ DialogParameters::DialogParameters(QWidget *parent)
     ui->comboBox_style->addItem(QIcon(":/icons/hatch_4.png"), "Камень искусственный");
     ui->comboBox_style->addItem(QIcon(":/icons/hatch_5.png"), "Железобетон");
     ui->comboBox_style->addItem(QIcon(":/icons/hatch_6.png"), "Напряжённый железобетон");
+
+    setAutoSizeForComboBox(ui->comboBox_style, 60);
 
     ui->comboBox_style->setIconSize(QSize(60,25 / 2));
 
