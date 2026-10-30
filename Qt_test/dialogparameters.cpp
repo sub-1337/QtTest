@@ -110,15 +110,16 @@ DialogParameters::DialogParameters(QWidget *parent)
             ui->lineEdit_angle
             )
     );
-
+    // Привязать изменение типа диалогового окна
     connect(ui->comboBoxMethod, &QComboBox::currentIndexChanged, this, &DialogParameters::onComboboxTypeChanged);
 
     // Выбрать определённый элемент и обновить
     ui->comboBoxMethod->setCurrentIndex(0);
     onComboboxTypeChanged(0);
 
+    // Привязать галочку центра масс
     connect(ui->checkBox_massCenter, &QCheckBox::toggled, this, &DialogParameters::onMassCenter);
-
+    // Привязать сохранение данных
     connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &DialogParameters::onSave);
 }
 
@@ -129,8 +130,13 @@ void DialogParameters::onComboboxTypeChanged(int index)
     ui->widget_density->setVisible(false);
     ui->widget_source->setVisible(false);
 
+    ui->lineEdit_material->setEnabled(true);
+    ui->comboBox_style->setEnabled(true);
+    ui->lineEdit_angle->setEnabled(true);
+
     if (index == 0) // по плотности
     {
+        // Выставляем видимыми контроллы плотности
         ui->widget_density->setVisible(true);
         // Сдвигаем вверх
         ui->widget_density->move(
@@ -140,6 +146,7 @@ void DialogParameters::onComboboxTypeChanged(int index)
     }
     else if (index == 1) // по массе
     {
+        // Выставляем видимыми контроллы массы
         ui->widget_mass->setVisible(true);
         // Сдвигаем вверх
         ui->widget_mass->move(
@@ -149,6 +156,7 @@ void DialogParameters::onComboboxTypeChanged(int index)
     }
     else if (index == 2) // по данным
     {
+        // Выставляем видимыми контроллы данных
         ui->widget_source->setVisible(true);
         // Сдвигаем вверх
         ui->widget_source->move(
@@ -156,8 +164,21 @@ void DialogParameters::onComboboxTypeChanged(int index)
             ui->widget_method->y() + ui->widget_method->height()
             );
 
+        // Отключаем редактирование всего
         ui->lineEdit_density2->setEnabled(false);
         ui->lineEdit_mass_2->setEnabled(false);
+
+        ui->lineEdit_material->setEnabled(false);
+        ui->comboBox_style->setEnabled(false);
+        ui->lineEdit_angle->setEnabled(false);
+
+        // Обнуляем загрееные значения
+        ui->lineEdit_density2->setText("0");
+        ui->lineEdit_mass_2->setText("0");
+
+        ui->lineEdit_material->setText("");
+        ui->comboBox_style->setCurrentIndex(0);
+        ui->lineEdit_angle->setText("0");
     }
 }
 
@@ -166,6 +187,7 @@ void DialogParameters::onMassCenter(bool checked)
 {
     if (checked)
     {
+        // Показываем контроллы если галочка стоит
         ui->lineEdit_X->show();
         ui->lineEdit_Y->show();
         ui->lineEdit_Z->show();
@@ -176,6 +198,7 @@ void DialogParameters::onMassCenter(bool checked)
     }
     else
     {
+        // Скрываем контроллы если галочки нет
         ui->lineEdit_X->hide();
         ui->lineEdit_Y->hide();
         ui->lineEdit_Z->hide();
@@ -196,6 +219,7 @@ void DialogParameters::onSave()
     {
         data.m_method = "плотность";
         data.m_mass = "0";
+        // Если не пустое поле
         if (ui->lineEdit_density->hasAcceptableInput())
         {
             data.m_density = ui->lineEdit_density->text();
@@ -209,6 +233,7 @@ void DialogParameters::onSave()
         data.m_material = ui->lineEdit_material->text();
         data.m_style = ui->comboBox_style->currentText();
 
+        // Если не пустое поле
         if (ui->lineEdit_angle->hasAcceptableInput())
         {
             data.m_angle = ui->lineEdit_angle->text();
@@ -223,6 +248,7 @@ void DialogParameters::onSave()
     {
         data.m_method = "масса";
 
+        // Если не пустое поле
         if (ui->lineEdit_mass->hasAcceptableInput())
         {
             data.m_mass = ui->lineEdit_mass->text();
@@ -234,8 +260,10 @@ void DialogParameters::onSave()
 
         data.m_density = "0";
 
+        //  Если галочка центра масс активна
         if (ui->checkBox_massCenter->isChecked())
         {
+            // Если не пустые поля
             if (ui->lineEdit_X->hasAcceptableInput()
                 && ui->lineEdit_Y->hasAcceptableInput()
                 && ui->lineEdit_Z->hasAcceptableInput())

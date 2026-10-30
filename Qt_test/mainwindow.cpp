@@ -31,11 +31,13 @@ MainWindow::MainWindow(QWidget *parent)
 // Добавление
 void MainWindow::OnAdd()
 {
+    // Вызов диалога добавления элемента
     DialogParameters dlg;
     auto res = dlg.exec();
     if (res == QDialog::Accepted)
     {
         auto& data = dlg.data;
+        // Добавить строку со значениями
         m_model->appendRow({
             new QStandardItem(data.m_method),
             new QStandardItem(data.m_mass),
